@@ -1,6 +1,7 @@
 import { Sequelize } from 'sequelize';
-const sequelize = new Sequelize('blog-project', 'root', '' , {
-host: 'localhost',
+const sequelize = new Sequelize('freedb_blogSystem', 'freedb_hidaya', 'zmdkEC4A&7TUrwE' , {
+host: 'sql.freedb.tech',
+port:3306,
 dialect:'mysql' 
 });
 
