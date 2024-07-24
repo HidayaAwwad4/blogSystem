@@ -1,6 +1,6 @@
 import { Router } from "express";
 import blogModel from "../../../DB/model/blog.model.js";
-import jwt from "jsonwebtoken";
+import commentModel from "../../../DB/model/comment.model.js"
 const app = Router({caseSensitive:true});
 
 app.get('/',async(req,res)=>{
@@ -12,6 +12,18 @@ app.get('/',async(req,res)=>{
 }
 });
 
+app.post('/',async(req,res)=>{
+    try{
+    const {title,description,category,usertype} = req.body;
+    if(usertype != "admin"){
+        return res.status(400).json({message:"not authenticated user"});
+    }
+    await blogModel.create({title,description,category,usertype});
+    return res.status(201).json({message:"success"});
+    }catch(error){
+        return res.status(500).json({message:"catch error",error});
+    }
+});
 
 
 

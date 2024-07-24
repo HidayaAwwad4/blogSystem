@@ -15,6 +15,10 @@ const blogModel = sequelize.define('Blog', {
         type: DataTypes.STRING,
         allowNull: false,
     },
+    usertype:{
+        type: DataTypes.STRING,
+        defaultValue:"user",
+    }
 });
 blogModel.belongsTo(userModel);
 userModel.hasMany(blogModel);

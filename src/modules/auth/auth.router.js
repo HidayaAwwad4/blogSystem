@@ -32,5 +32,5 @@ app.post('/login',async(req,res)=>{
     }
     const token =await jwt.sign({id:user.id , name:user.name},'hidayaPassword')//'hidayaPassword' هاي باسورد لازم نكتبها وما حدا يعرفها غيرنا عشان ولا حدا يقدر يعدل على هاي التوكين
     return res.status(200).json({message:"success",token});
-})
+});
 export default app;
